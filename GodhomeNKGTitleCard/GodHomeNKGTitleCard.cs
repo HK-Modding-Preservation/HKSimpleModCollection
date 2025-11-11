@@ -7,6 +7,7 @@ using UnityEngine;
 using UObject = UnityEngine.Object;
 using Satchel;
 using UnityEngine.SceneManagement;
+using HutongGames.PlayMaker.Actions;
 
 namespace GodHomeNKGTitleCard
 {
@@ -46,10 +47,10 @@ namespace GodHomeNKGTitleCard
                 {
                     Modding.Logger.Log("It's null!");
                 }
-                // grimmControlFsm.ChangeTransition("Init", "FINISHED", "Idle");
-                // grimmControlFsm.ChangeTransition("Eye 4", "FINISHED", "Silhouette 2");
+
                 grimmControlFsm.ChangeTransition("Take Control 2", "QUICK", "Pan Over");
                 grimmControlFsm.AddCustomAction("Fight Start", () => DisableBlackFader());
+                grimmControlFsm.GetAction<Wait>("Silhouette", 3).time = 2f;
             }
         }
 
